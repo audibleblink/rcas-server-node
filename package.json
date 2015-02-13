@@ -1,0 +1,28 @@
+{
+  "name": "RCasRoster",
+  "version": "0.1.2",
+  "description": "A Roster for the CoD Reddit Casual Team",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "director": "",
+    "firebase": "^2.2.0",
+    "node-xbox": "^0.1.0",
+    "when": "^3.7.1"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/audibleblink/rcas-server"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "director"
+  ],
+  "license": "MIT"
+}
