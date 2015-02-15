@@ -19,5 +19,5 @@ test $KEEP_DYNO_UP && (
 if [ "${NODE_ENV}" == "production" ]; then
   exec node ./app/index.js
 else
-  exec node ./nawbot/index.js
+  exec node ./rcas-back/index.js
 fi
