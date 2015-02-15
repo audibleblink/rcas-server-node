@@ -1,30 +1,32 @@
-var http     = require('http'),
-    director = require('director'),
-    routes   = require('./actions'),
-    router, server, port
+var http   = require('http'),
+    fs     = require('fs'),
+    port   = Number(process.env.PORT || 5005),
+    fb     = require('firebase'),
+    fBase  = new fb("https://blazing-heat-7747.firebaseio.com/members")
 
 
-router = new director.http.Router({
-    '/': {
-        get:  routes.ping,
-        post: routes.pong
-    }
-})
+var server = http.createServer(function(req, res) {
+    var index = fs.createReadStream("./public/index.html")
+    index.pipe(res)
 
-server = http.createServer(function(req, res) {
-    req.chunks = []
-    req.on('data', function(chunk) {
-        req.chunks.push(chunk.toString())
-    })
+    io.on("connection", function(socket){
+        console.log("client connected")
 
-    router.dispatch(req, res, function(err) {
-        res.writeHead(err.status, {
-            "Content-Type": "text/plain"
+        fBase.on("value", function(snap){
+            var players = []
+            snap.forEach(function(snapItem) {
+                var player = snapItem.val()
+                player.key = snapItem.key()
+                players.push(player)      
+            })
+
+            socket.emit("fbChange", players)
         })
-        res.end(err.message)
     })
 })
 
-port = Number(process.env.PORT || 5000)
+var io = require('socket.io')(server)
 
-server.listen(port)
+server.listen(port, function () {
+  console.log('Server listening at port %d', port);
+});
