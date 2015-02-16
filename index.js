@@ -1,13 +1,17 @@
 var http   = require('http'),
     fs     = require('fs'),
+    static = require("node-static"),
+    files  = new static.Server("./public"),
     port   = Number(process.env.PORT || 5005),
     fb     = require('firebase'),
     fBase  = new fb("https://blazing-heat-7747.firebaseio.com/members")
 
 
 var server = http.createServer(function(req, res) {
-    var index = fs.createReadStream("./public/index.html")
-    index.pipe(res)
+    
+    req.addListener("end", function(){
+        files.serve(req, res)
+    }).resume()
 
     io.on("connection", function(socket){
         console.log("client connected")
