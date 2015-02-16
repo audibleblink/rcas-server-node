@@ -35,7 +35,9 @@ io.on("connection", function(socket){
         fBase.push(gamer)
     })
 
-    socket.on("disconnect", function(){
+    socket.on("gamer deleted", function(obj){
+        console.log("deleting player with key: " + obj.key)
+        fBase.child(obj.key).remove()
     })
 })
 

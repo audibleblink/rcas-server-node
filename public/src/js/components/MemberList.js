@@ -12,9 +12,10 @@ var MemberList = React.createClass({
         <MemberItem key={item.key} 
           name={item.gamertag} 
           gamerScore={item.gamerScore} 
-          image={item.imageUrl} />
+          image={item.imageUrl} 
+          onGamerDelete={this.props.onGamerDelete}/>
         )
-    })
+    }.bind(this))
 
     return (
       <ul className="list-group container">

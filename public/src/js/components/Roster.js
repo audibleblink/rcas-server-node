@@ -44,6 +44,11 @@ var Roster = React.createClass({
         })
     },
 
+    onGamerDelete: function(gamerData) {
+        console.log("emitting 'gamer deleted'")
+        socket.emit("gamer deleted", gamerData)
+    },
+
 
     render: function() {
         return (
@@ -55,7 +60,7 @@ var Roster = React.createClass({
 
                 <MemberForm display={this.state.formDisplayed} addGamer={this.addGamer}/>
 
-                <MemberList items={this.state.items} />
+                <MemberList onGamerDelete={this.onGamerDelete} items={this.state.items} />
 
             </div>
         )

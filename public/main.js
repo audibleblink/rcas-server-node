@@ -25694,15 +25694,19 @@ var React = require('react')
 
 var MemberItem = React.createClass({displayName: 'MemberItem',
 
-  render: function() {
-    return (
-      React.DOM.li({className: "list-group-item clearfix"}, 
-        React.DOM.img({className: "pull-right thumb", src: this.props.image}), 
-        React.DOM.h4(null, this.props.name), 
-        React.DOM.span(null, this.props.gamerScore)
-      )
-    )
-  }
+    destroy: function(){
+        this.props.onGamerDelete(this.props)
+    },
+
+    render: function() {
+        return (
+            React.DOM.li({className: "list-group-item clearfix"}, 
+                React.DOM.img({onClick:  this.destroy, className: "pull-right thumb", src: this.props.image}), 
+                React.DOM.h4(null, this.props.name), 
+                React.DOM.span(null, this.props.gamerScore)
+            )
+        )
+    }
 
 })
 
@@ -25723,9 +25727,10 @@ var MemberList = React.createClass({displayName: 'MemberList',
         MemberItem({key: item.key, 
           name: item.gamertag, 
           gamerScore: item.gamerScore, 
-          image: item.imageUrl})
+          image: item.imageUrl, 
+          onGamerDelete: this.props.onGamerDelete})
         )
-    })
+    }.bind(this))
 
     return (
       React.DOM.ul({className: "list-group container"}, 
@@ -25785,6 +25790,11 @@ var Roster = React.createClass({displayName: 'Roster',
         })
     },
 
+    onGamerDelete: function(gamerData) {
+        console.log("emitting 'gamer deleted'")
+        socket.emit("gamer deleted", gamerData)
+    },
+
 
     render: function() {
         return (
@@ -25796,7 +25806,7 @@ var Roster = React.createClass({displayName: 'Roster',
 
                 MemberForm({display: this.state.formDisplayed, addGamer: this.addGamer}), 
 
-                MemberList({items: this.state.items})
+                MemberList({onGamerDelete: this.onGamerDelete, items: this.state.items})
 
             )
         )
