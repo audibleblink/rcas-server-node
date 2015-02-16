@@ -26,7 +26,16 @@ var server = http.createServer(function(req, res) {
 
             socket.emit("fbChange", players)
         })
+
+        socket.on("gamer added", function(gamer){
+            fBase.push(gamer)
+        })
+
+        socket.on("disconnect", function(){
+        })
     })
+    
+
 })
 
 var io = require('socket.io')(server)
