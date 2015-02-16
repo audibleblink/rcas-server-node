@@ -17,7 +17,7 @@ test $KEEP_DYNO_UP && (
 
 # Then replace this process with web server process
 if [ "${NODE_ENV}" == "production" ]; then
-  exec node ./app/index.js
+  exec node ./index.js
 else
   exec node ./rcas-back/index.js
 fi
