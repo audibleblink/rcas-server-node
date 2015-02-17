@@ -16,12 +16,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/audibleblink/rcas-server"
+    "url": "https://github.com/audibleblink/rcas-server-node"
   },
   "keywords": [
     "node",
     "heroku",
-    "director"
+    "firebase",
+    "socket.io"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-develop-server": "^0.2.5",
+    "gulp-open": "^0.3.2"
+  }
 }
