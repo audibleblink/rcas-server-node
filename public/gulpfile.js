@@ -19,17 +19,6 @@ gulp.task('sass', function(){
         .pipe(gulp.dest('./'))
 })
 
-// launch browser in a port
-gulp.task('open', function(){
-    var options = {
-        url: 'http://localhost:' + port,
-        app: 'google chrome canary'
-    }
-    
-    gulp.src('./index.html')
-        .pipe(open('', options));
-});
-
 // live reload server
 gulp.task('connect', function() {
     connect.server({
@@ -39,13 +28,11 @@ gulp.task('connect', function() {
     });
 });
 
-
 // live reload js
 gulp.task('js', function () {
     gulp.src('./*.js')
         .pipe(connect.reload());
 });
-
 
 // live reload html
 gulp.task('html', function () {
@@ -53,13 +40,11 @@ gulp.task('html', function () {
         .pipe(connect.reload());
 });
 
-
 // live reload css
 gulp.task('css', function () {
     gulp.src('./*.css')
         .pipe(connect.reload());
 });
-
 
 // watch files for live reload
 gulp.task('watch', function() {
@@ -70,6 +55,6 @@ gulp.task('watch', function() {
     gulp.watch('./src/styles/**/*.sass', ['sass']);
 });
 
-gulp.task('default', ['browserify']);
+gulp.task('default', ['browserify', 'sass']);
 
-gulp.task('serve', ['browserify', 'connect', 'open', 'watch']);
+gulp.task('serve', ['browserify', 'connect', 'watch']);
