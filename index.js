@@ -6,7 +6,7 @@ var http   = require('http'),
 
 var server = http.createServer(function(req, res) {
 
-    assets  = new statik.Server("./public")
+    var assets  = new statik.Server("./public")
     
     req.addListener("end", function(){
         assets.serve(req, res)
@@ -23,6 +23,8 @@ io.on("connection", function(clientSocket){
 
     fBase.on("value", function(snapshot){
         var players = []
+        // Firebase reimplementation of forEach
+        // for their own objects. No map/reduce =(
         snapshot.forEach(function(snapItem) {
             var player = snapItem.val()
             player.key = snapItem.key()
