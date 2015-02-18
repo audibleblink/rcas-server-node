@@ -25670,14 +25670,14 @@ var MemberForm = React.createClass({displayName: 'MemberForm',
 
   render: function() {
 
-    var classString = this.props.display ? "" : " hidden"
+    var classString = this.props.display ? "" : " hide"
 
     return (
       React.DOM.form({id: "feedForm", className: "container" + classString, onSubmit: this.submitForm}, 
         React.DOM.div({className: "form-group"}, 
-          React.DOM.input({type: "text", className: "form-control", ref: "gamer", placeholder: "GamerTag"}), 
-          React.DOM.input({type: "text", className: "form-control", ref: "score", placeholder: "Score"}), 
-          React.DOM.button({type: "submit", className: "btn btn-primary btn-block"}, "Add")
+          React.DOM.input({type: "text", className: "full-width mb1", ref: "gamer", placeholder: "GamerTag"}), 
+          React.DOM.input({type: "text", className: "full-width mb1", ref: "score", placeholder: "Score"}), 
+          React.DOM.button({type: "submit", className: "button-blue-outline full-width"}, "Add")
         )
       )
     )
@@ -25700,10 +25700,14 @@ var MemberItem = React.createClass({displayName: 'MemberItem',
 
     render: function() {
         return (
-            React.DOM.li({className: "list-group-item clearfix"}, 
-                React.DOM.img({onClick:  this.destroy, className: "pull-right thumb", src: this.props.image}), 
-                React.DOM.h4(null, this.props.name), 
-                React.DOM.span(null, this.props.gamerScore)
+            React.DOM.div({className: "clearfix memberitem m3"}, 
+                React.DOM.div({className: "memberinfo md-col-6 inline-block v-align"}, 
+                    React.DOM.p({className: "h2"}, this.props.name), 
+                    React.DOM.span(null, this.props.gamerScore)
+                ), 
+                React.DOM.div({className: "memberpic md-col-6 inline-block"}, 
+                    React.DOM.img({onClick:  this.destroy, className: "thumb right", src: this.props.image})
+                )
             )
         )
     }
@@ -25733,7 +25737,7 @@ var MemberList = React.createClass({displayName: 'MemberList',
     }.bind(this))
 
     return (
-      React.DOM.ul({className: "list-group container"}, 
+      React.DOM.div({className: "memberlist"}, 
         memberItems
       )
     )
@@ -25800,7 +25804,7 @@ var Roster = React.createClass({displayName: 'Roster',
         return (
             React.DOM.div(null, 
 
-                React.DOM.div({className: "container"}, 
+                React.DOM.div({className: "container mx-auto"}, 
                     ShowAddButton({displayed: this.state.formDisplayed, onToggleForm: this.onToggleForm})
                 ), 
 
@@ -25828,10 +25832,10 @@ var ShowAddButton = React.createClass({displayName: 'ShowAddButton',
     var classString, buttonText
 
     if(this.props.displayed) {
-        classString = "btn btn-danger btn-block"
+        classString = "button-red-outline full-width mb2"
         buttonText  = "Cancel"
     } else {
-        classString = "btn btn-info btn-block"
+        classString = "button-blue full-width mb2"
         buttonText  = "Create New Item"
     }
 

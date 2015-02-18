@@ -9,10 +9,10 @@ var ShowAddButton = React.createClass({
     var classString, buttonText
 
     if(this.props.displayed) {
-        classString = "btn btn-danger btn-block"
+        classString = "button-red-outline full-width mb2"
         buttonText  = "Cancel"
     } else {
-        classString = "btn btn-info btn-block"
+        classString = "button-blue full-width mb2"
         buttonText  = "Create New Item"
     }
 

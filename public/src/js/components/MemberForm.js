@@ -16,14 +16,14 @@ var MemberForm = React.createClass({
 
   render: function() {
 
-    var classString = this.props.display ? "" : " hidden"
+    var classString = this.props.display ? "" : " hide"
 
     return (
       <form id="feedForm" className={"container" + classString} onSubmit={this.submitForm}>
         <div className="form-group">
-          <input type="text" className="form-control" ref="gamer" placeholder="GamerTag" />
-          <input type="text" className="form-control" ref="score" placeholder="Score" />
-          <button type="submit" className="btn btn-primary btn-block">Add</button>
+          <input type="text" className="full-width mb1" ref="gamer" placeholder="GamerTag" />
+          <input type="text" className="full-width mb1" ref="score" placeholder="Score" />
+          <button type="submit" className="button-blue-outline full-width">Add</button>
         </div>
       </form>
     )

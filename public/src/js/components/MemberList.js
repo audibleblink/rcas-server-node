@@ -18,9 +18,9 @@ var MemberList = React.createClass({
     }.bind(this))
 
     return (
-      <ul className="list-group container">
+      <div className="memberlist">
         {memberItems}
-      </ul>
+      </div>
     )
   }
 

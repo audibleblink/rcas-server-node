@@ -10,11 +10,15 @@ var MemberItem = React.createClass({
 
     render: function() {
         return (
-            <li className="list-group-item clearfix">
-                <img onClick={ this.destroy } className="pull-right thumb" src={this.props.image}/>
-                <h4>{this.props.name}</h4>
-                <span>{this.props.gamerScore}</span>
-            </li>
+            <div className="clearfix memberitem m3">
+                <div className="memberinfo md-col-6 inline-block v-align">
+                    <p className="h2">{this.props.name}</p>
+                    <span>{this.props.gamerScore}</span>
+                </div>
+                <div className="memberpic md-col-6 inline-block">
+                    <img onClick={ this.destroy } className="thumb right" src={this.props.image}/>
+                </div>
+            </div>
         )
     }
 
