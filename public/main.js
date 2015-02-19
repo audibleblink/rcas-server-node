@@ -25701,12 +25701,12 @@ var MemberItem = React.createClass({displayName: 'MemberItem',
     render: function() {
         return (
             React.DOM.div({className: "clearfix memberitem m3"}, 
-                React.DOM.div({className: "memberinfo md-col-12 lg-col-6 inline-block v-align"}, 
+                React.DOM.div({className: "memberinfo md-col-6 inline-block v-align"}, 
                     React.DOM.h2({className: "h2"}, this.props.name), 
                     React.DOM.span({className: "blue"}, this.props.gamerScore)
                 ), 
-                React.DOM.div({className: "memberpic md-col-8 sm-col-8 lg-col-6 inline-block"}, 
-                    React.DOM.img({onClick:  this.destroy, className: "thumb right lg-col-3 md-col-6", src: this.props.image})
+                React.DOM.div({className: "memberpic md-col-6 inline-block"}, 
+                    React.DOM.img({onClick:  this.props.isAdmin ? this.destroy : "", className: "thumb right lg-col-3 md-col-6", src: this.props.image})
                 )
             )
         )

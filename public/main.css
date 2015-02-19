@@ -12,13 +12,14 @@ body {
   vertical-align: middle;
   height: 1.5em; }
 
-@media (max-width: 64em) {
+@media (max-width: 52em) {
   body {
     text-align: center; }
   .memberinfo {
     display: block; }
   .memberpic img {
     float: none;
-    display: block; }
+    display: block;
+    margin: 0 auto; }
   .container button {
     padding: 1.5em 0; } }
