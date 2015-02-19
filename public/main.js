@@ -25729,6 +25729,7 @@ var MemberList = React.createClass({displayName: 'MemberList',
     var memberItems = this.props.items.map(function(item) {
       return (
         MemberItem({key: item.key, 
+          isAdmin: this.props.isAdmin, 
           name: item.gamertag, 
           gamerScore: item.gamerScore, 
           image: item.imageUrl, 
@@ -25799,18 +25800,29 @@ var Roster = React.createClass({displayName: 'Roster',
         socket.emit("gamer deleted", gamerData)
     },
 
+    isAdmin: (function(){
+        return window.location.hash === "#admin"
+    })(),
+
 
     render: function() {
+
+        var button
+
+        if (this.isAdmin){
+            button = ShowAddButton({displayed: this.state.formDisplayed, onToggleForm: this.onToggleForm})
+        }
+
         return (
             React.DOM.div({className: "p2 container mx-auto"}, 
 
                 React.DOM.div(null, 
-                    ShowAddButton({displayed: this.state.formDisplayed, onToggleForm: this.onToggleForm})
+                    button
                 ), 
 
                 MemberForm({display: this.state.formDisplayed, addGamer: this.addGamer}), 
 
-                MemberList({onGamerDelete: this.onGamerDelete, items: this.state.items})
+                MemberList({isAdmin: this.isAdmin, onGamerDelete: this.onGamerDelete, items: this.state.items})
 
             )
         )

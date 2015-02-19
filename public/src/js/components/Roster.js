@@ -49,18 +49,29 @@ var Roster = React.createClass({
         socket.emit("gamer deleted", gamerData)
     },
 
+    isAdmin: (function(){
+        return window.location.hash === "#admin"
+    })(),
+
 
     render: function() {
+
+        var button
+
+        if (this.isAdmin){
+            button = <ShowAddButton displayed={this.state.formDisplayed} onToggleForm={this.onToggleForm}/>
+        }
+
         return (
             <div className="p2 container mx-auto">
 
                 <div>
-                    <ShowAddButton displayed={this.state.formDisplayed} onToggleForm={this.onToggleForm}/>
+                    {button}
                 </div>
 
                 <MemberForm display={this.state.formDisplayed} addGamer={this.addGamer}/>
 
-                <MemberList onGamerDelete={this.onGamerDelete} items={this.state.items} />
+                <MemberList isAdmin={this.isAdmin} onGamerDelete={this.onGamerDelete} items={this.state.items} />
 
             </div>
         )

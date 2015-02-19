@@ -10,6 +10,7 @@ var MemberList = React.createClass({
     var memberItems = this.props.items.map(function(item) {
       return (
         <MemberItem key={item.key} 
+          isAdmin={this.props.isAdmin}
           name={item.gamertag} 
           gamerScore={item.gamerScore} 
           image={item.imageUrl} 
