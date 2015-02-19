@@ -19,11 +19,11 @@ var MemberForm = React.createClass({
     var classString = this.props.display ? "" : " hide"
 
     return (
-      <form id="feedForm" className={"container" + classString} onSubmit={this.submitForm}>
+      <form id="feedform" className={"p2 white bg-light-gray rounded" + classString} onSubmit={this.submitForm}>
         <div className="form-group">
           <input type="text" className="full-width mb1" ref="gamer" placeholder="GamerTag" />
           <input type="text" className="full-width mb1" ref="score" placeholder="Score" />
-          <button type="submit" className="button-blue-outline full-width">Add</button>
+          <button type="submit" className="button-blue full-width my2 py2">Add</button>
         </div>
       </form>
     )

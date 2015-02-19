@@ -18,7 +18,7 @@ var MemberList = React.createClass({
     }.bind(this))
 
     return (
-      <div className="memberlist">
+      <div className="memberlist border rounded p1">
         {memberItems}
       </div>
     )

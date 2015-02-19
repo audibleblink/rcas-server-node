@@ -52,9 +52,9 @@ var Roster = React.createClass({
 
     render: function() {
         return (
-            <div>
+            <div className="p2 container mx-auto">
 
-                <div className="container mx-auto">
+                <div>
                     <ShowAddButton displayed={this.state.formDisplayed} onToggleForm={this.onToggleForm}/>
                 </div>
 
