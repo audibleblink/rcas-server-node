@@ -25701,12 +25701,12 @@ var MemberItem = React.createClass({displayName: 'MemberItem',
     render: function() {
         return (
             React.DOM.div({className: "clearfix memberitem m3"}, 
-                React.DOM.div({className: "memberinfo sm-col-12 md-col-6 inline-block v-align"}, 
-                    React.DOM.div({className: "h2"}, this.props.name), 
+                React.DOM.div({className: "memberinfo md-col-12 lg-col-6 inline-block v-align"}, 
+                    React.DOM.h2({className: "h2"}, this.props.name), 
                     React.DOM.span({className: "blue"}, this.props.gamerScore)
                 ), 
-                React.DOM.div({className: "memberpic md-col-5 inline-block"}, 
-                    React.DOM.img({onClick:  this.destroy, className: "thumb right md-col-3 sm-col-12", src: this.props.image})
+                React.DOM.div({className: "memberpic md-col-8 sm-col-8 lg-col-6 inline-block"}, 
+                    React.DOM.img({onClick:  this.destroy, className: "thumb right lg-col-3 md-col-6", src: this.props.image})
                 )
             )
         )
@@ -25832,10 +25832,10 @@ var ShowAddButton = React.createClass({displayName: 'ShowAddButton',
     var classString, buttonText
 
     if(this.props.displayed) {
-        classString = "h2 button-outline full-width mb2 py2"
+        classString = "button-outline full-width mb2 py2"
         buttonText  = "Cancel"
     } else {
-        classString = "h2 button-blue full-width mb2 py2"
+        classString = "button-blue full-width mb2 py2"
         buttonText  = "Add To Roster"
     }
 
@@ -25851,6 +25851,8 @@ var ShowAddButton = React.createClass({displayName: 'ShowAddButton',
 })
 
 module.exports = ShowAddButton
+
+          // <button type="submit" className="button-blue full-width my2 py2">Add</button>
 
 },{"react":145}],201:[function(require,module,exports){
 /** @jsx React.DOM */

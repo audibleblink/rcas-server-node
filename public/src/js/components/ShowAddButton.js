@@ -9,10 +9,10 @@ var ShowAddButton = React.createClass({
     var classString, buttonText
 
     if(this.props.displayed) {
-        classString = "h2 button-outline full-width mb2 py2"
+        classString = "button-outline full-width mb2 py2"
         buttonText  = "Cancel"
     } else {
-        classString = "h2 button-blue full-width mb2 py2"
+        classString = "button-blue full-width mb2 py2"
         buttonText  = "Add To Roster"
     }
 
@@ -28,3 +28,5 @@ var ShowAddButton = React.createClass({
 })
 
 module.exports = ShowAddButton
+
+          // <button type="submit" className="button-blue full-width my2 py2">Add</button>
