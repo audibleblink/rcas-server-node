@@ -1,6 +1,6 @@
 #React.js Roster
 
-![db](https://dl.dropboxusercontent.com/content_link/eoX4Vff1AveKKqW5gBeZdikxLqN8WtFhctH021xDj9JUfMUHbQtalKwOx6ZQjO0C)
+![](http://i.imgur.com/fY7dFSl.png)
 
 ## Description
 
